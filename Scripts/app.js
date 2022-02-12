@@ -1,3 +1,8 @@
+//Nimsith Fernandopulle
+//100806868
+//11/02/2022
+
+
 /**Variable to store string values of the about html page */
 var about;
 var nresume;
@@ -5,16 +10,6 @@ var abouth;
 abouth = "About Us"
 about = "Hi, My Name is Nimsith Fernandopulle , I am currently enrolled in the program Computer Programming and Analysis. The reason why I chose the IT field as a career path was because I always loved how technology was used in automotive industry. Specially how IT is used in F1 facinated me where before during after each race they process over 20GB of data every weeked which also makes it the most advanced motoracing sport in the world";
 nresume = "My Resume"
-
-/**Variable to store string values of the Contact html page */
-var contacth;
-var contacte;
-var contactt;
-var contactname;
-contactname= "Nimsith Fernandopulle";
-contacth ="Contact us"; 
-contacte = "Email: nimsith.fernandopulle@dcmail.ca";
-contactt = "Tel  : 6476364788";
 
 /**Variable to store string values of the Index html page */
 var mheader;
@@ -62,3 +57,23 @@ var projectsp1;
 pheadr = "HTML & DOM Manipulation";
 projectsp = "For Lab 1 of WEBD6201 we have used a little bit of html, css and javascript which is what this course is mainly based on, We have used javascript to return strings, Changing a single word, adding links etc.  ";
 projectsp1 = "When writing web pages and apps, one of the most common things you'll want to do is manipulate the document structure in some way. This is usually done by using the Document Object Model (DOM), a set of APIs for controlling HTML and styling information that makes heavy use of the Document object. In this article we'll look at how to use the DOM in detail, along with some other interesting APIs that can alter your environment in interesting ways.";
+
+/** Creating Human Resources */
+
+var link = document.getElementById("humanresources");
+
+
+link.setAttribute("link","humanresources.html")
+
+//This function redirects to the home page after 3 seconds once the user clicks the button
+// setTimeout(function redirect()
+// {
+//     window.location.href = 'index.php';
+
+// }, 3000);
+
+function submit() 
+{
+  var text = document.getElementById("fname").value();
+  console.log("fname")
+}

@@ -24,14 +24,33 @@
     </div>
 </header>
 
-<h1><script>document.write(contacth);</script></h1>
-<p><script>document.write(contactname);</script></p>
-<p><script>document.write(contacte);</script></p>
-<p><script>document.write(contactt);</script></p>
-
-
-
+<script>
+    //This function redirects to the home page after 3 seconds once the user clicks the button
+    setTimeout(function()
+    {
+            window.location.href = 'index.html';
+        
+    }, 3000);
 </script>
+
+<form id="myForm" action="/action_page.php">
+    <label for="fname">Name :</label>
+    <input type = "text" id="fname" name="fname"><br><br>
+
+    <label for="lname">Contact Number:</label>
+    <input type = "text" id="lname" name="lname"><br><br>
+
+    <label for="email">Email    :</label>
+    <input type = "text" id="email" name="email"><br><br>
+
+    <label for="email">Message   :</label>
+    <input type = "text" id="message" name="message"><br><br>
+
+    <input type="button" onclick="setTimeout;" value="Submit form">
+</form>
+
+
+
 
 
 
