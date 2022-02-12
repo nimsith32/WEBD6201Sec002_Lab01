@@ -1,7 +1,27 @@
-//Nimsith Fernandopulle
-//100806868
+//Nimsith Fernandopulle & Siddharth Choudhury
+//100806868 / 100807291
 //11/02/2022
 
+/**
+ * Start function that calls All the other functions in the file
+ */
+ function start()
+ {
+     changeNavbar();
+     inserthumanresource();
+ }
+
+// call start after the window loads
+window.addEventListener("load", start, false);
+
+function changeNavbar()
+{
+    // Find element of navigation link using Id and then set the HTML to the required text
+    var product = document.getElementById("navProduct");
+    product.innerHTML = 'Projects';
+}
+
+ 
 
 /**Variable to store string values of the about html page */
 var about;
@@ -58,22 +78,44 @@ pheadr = "HTML & DOM Manipulation";
 projectsp = "For Lab 1 of WEBD6201 we have used a little bit of html, css and javascript which is what this course is mainly based on, We have used javascript to return strings, Changing a single word, adding links etc.  ";
 projectsp1 = "When writing web pages and apps, one of the most common things you'll want to do is manipulate the document structure in some way. This is usually done by using the Document Object Model (DOM), a set of APIs for controlling HTML and styling information that makes heavy use of the Document object. In this article we'll look at how to use the DOM in detail, along with some other interesting APIs that can alter your environment in interesting ways.";
 
-/** Creating Human Resources */
-
-var link = document.getElementById("humanresources");
 
 
-link.setAttribute("link","humanresources.html")
 
+/**
+ * Contact us Page Form Redirection and Console
+ */
 //This function redirects to the home page after 3 seconds once the user clicks the button
-// setTimeout(function redirect()
-// {
-//     window.location.href = 'index.php';
-
-// }, 3000);
-
-function submit() 
+function redirect()
 {
-  var text = document.getElementById("fname").value();
-  console.log("fname")
+  setTimeout(function() 
+  {
+    window.location.href = "index.html";
+  }, 3000);
+
 }
+
+/**
+ * Start function listens for a click on the form submit button
+ */
+ function start()
+ {
+     document.getElementById("submitButton").addEventListener("click", redirect, false);
+ }
+ 
+
+ 
+ /**
+  * Logs user input into form into the inspect element console
+  */
+ function submit()
+ {
+     //Created a variable for each input field and I set the value so it will print in the console
+     var name = document.getElementById("inputName");
+     console.log(name.value);
+     var email = document.getElementById("inputEmail");
+     console.log(email.value);
+     var number = document.getElementById("inputNumber");
+     console.log(number.value);
+     var message = document.getElementById("inputMessage");
+     console.log(message.value);
+ }
