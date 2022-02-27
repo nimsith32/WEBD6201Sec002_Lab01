@@ -119,3 +119,237 @@ function redirect()
      var message = document.getElementById("inputMessage");
      console.log(message.value);
  }
+
+ // Document is ready
+
+/*
+ Full Name:
+ StudentID:
+ Date Completed: 
+
+*/
+
+class User {
+
+   
+  constructor() {
+  let firstnameError = true;
+  let lastnameError = true;
+  let emailError = true;
+  let passwordError = true;
+  let confirmPasswordError = true;
+}
+
+
+ validateFirstName() {
+       let firstnameError = true;
+  let firstnameValue = $('#first_name').val();
+  if (firstnameValue.length == '') {
+      $('#ErrorMessage').html('Please enter first name');
+    this.firstnameError = false;
+    return false;
+  }
+  else if((firstnameValue.length < 2)) {
+    $('#ErrorMessage').html("**length of first name must be greater than 2");
+    firstnameError = false;
+    return false;
+  }
+  else {
+     firstnameError = true;
+     $('#ErrorMessage').html("");
+     return true;
+  }
+}
+ 
+
+  validateLastName() {
+     let lastnameError = true;
+  let lastnameValue = $('#last_name').val();
+  if (lastnameValue.length == '') {
+      $('#ErrorMessage').html('Please enter last name');
+    lastnameError = false;
+    return false;
+  }
+  else if((lastnameValue.length < 2)) {
+    $('#ErrorMessage').html("**length of last name must be greater than 2");
+    lastnameError = false;
+    return false;
+  }
+  else {
+     lastnameError = true;
+     $('#ErrorMessage').html("");
+     return true;
+  }
+}
+
+
+ validateEmail() {
+   let emailError = true;
+  let emailValue =
+    $('#email').val();
+  if (emailValue.length == '') {
+    $('#ErrorMessage').html("Please enter email");
+    emailError = false;
+    return false;
+  }else if ((emailValue.length < 8)) {
+    $('#ErrorMessage').html("**length of email must be  8");
+    emailError = false;
+    return false;
+  } else {
+
+    $('#ErrorMessage').html("");
+    emailError = true;
+    return true;
+  }
+}
+
+ validatePassword() {
+   let passwordError = true;
+  let passwordValue =
+    $('#password').val();
+  if (passwordValue.length == '') {
+    $('#ErrorMessage').html("Please enter password");
+    passwordError = false;
+    return false;
+  }
+  if ((passwordValue.length < 6)||
+    (passwordValue.length > 10)) {
+    $('#passcheck').show();
+    $('#ErrorMessage').html("**length of your password must be between 6 and 10");
+    $('#passcheck').css("color", "red");
+    passwordError = false;
+    return false;
+  } else {
+
+    $('#ErrorMessage').html("");
+    passwordError = true;
+    return true;
+  }
+}
+
+ validateConfirmPassword() {
+   let confirmPasswordError = true;
+  let confirmPasswordValue =
+    $('#conpassword').val();
+  let passwordValue =
+    $('#password').val();
+  if (passwordValue != confirmPasswordValue) {
+    $('#ErrorMessage').html(
+      "**Password didn't Match");
+    $('#conpasscheck').css(
+      "color", "red");
+    confirmPasswordError = false;
+    return false;
+  } else {
+    $('#ErrorMessage').html("");
+    confirmPasswordError = true;
+    return true;
+  }
+}
+
+
+}
+$(document).ready(function () {
+
+let user = new User();
+
+// Validate first name
+let firstnameError = true;
+$('#first_name').keyup(function () {
+  user.validateFirstName();
+});
+
+
+
+// Validate last name
+let lastnameError = true;
+$('#last_name').keyup(function () {
+  user.validateLastName();
+});
+
+
+// Validate Email
+let emailError = true;
+const email =
+  document.getElementById('email');
+email.addEventListener('blur', ()=>{
+let regex =
+/^([_\-\.0-9a-zA-Z]+)@([_\-\.0-9a-zA-Z]+)\.([a-zA-Z]){2,7}$/;
+let s = email.value;
+if(regex.test(s)){
+  email.classList.remove(
+      'is-invalid');
+      $('#ErrorMessage').html('');
+  emailError = true;
+  return true;
+  }
+  if ((s.length < 8)) {
+    $('#passcheck').show();
+    $('#ErrorMessage').html("**length of email must be  8");
+    $('#passcheck').css("color", "red");
+    emailError = false;
+    return false;
+  } 
+  else{
+    email.classList.add(
+      'is-invalid');
+    emailError = false;
+    $('#ErrorMessage').html('Please enter valid email');
+    return false;
+  }
+})
+
+
+
+
+// Validate Password
+
+let passwordError = true;
+$('#password').keyup(function () {
+  user.validatePassword();
+});
+
+  
+// Validate Confirm Password
+let confirmPasswordError = true;
+$('#conpassword').keyup(function () {
+  user.validateConfirmPassword();
+});
+
+
+// Submit button
+$('#register').submit(function (e) {
+  e.preventDefault();
+
+  if(user.validateFirstName()===true){
+     if(user.validateLastName()===true){
+             if(user.validateEmail()===true){
+             if(user.validatePassword()===true){
+                  if(user.validateConfirmPassword()===true){
+
+                      console.log('First Name='+$('#first_name').val());
+                      console.log('Last Name='+$('#last_name').val());
+                      console.log('Email='+$('#email').val());
+                      console.log('Psasword='+$('#password').val());
+                      console.log('Confirm Password='+$('#conpassword').val());
+
+                    document.getElementById("register").reset();
+                 }else{
+                   return false;
+                 }
+              }else{
+                return false;
+              }
+        }else{
+          return false;
+        }
+     }else{
+       return false;
+     }
+   }else{
+     return false;
+   }
+  
+});
+});
+
