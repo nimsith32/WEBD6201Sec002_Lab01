@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Form Validation</title>
+    <title>Login Form Validation</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="Content/app.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="scripts/loginvalidation.js"></script>
+    <link rel="stylesheet" href="./Content/app.css">
+    
   </head>
   <body>
     <header>
@@ -55,8 +53,24 @@
             </div>
           </div>
           <button type="button" class="btn btn-default" id="submitbtn">Submit</button>
+          <button type="button" class="btn btn-default" id="clearbtn">Clear</button>
         </form>
       </div>
+      <p class="text-center text-muted large">
+        Don't have an account? 
+        <a href="register.html">Register Here!</a>
+      </p>
     </div>
-  </body>
+
+    <!-- Script Section-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="Scripts/loginvalidation.js"></script>
+    <script src="Scripts/namespace.js"></script>
+    <script src="Scripts/user.js"></script>
+    <script src="Scripts/app.js"></script>
+</body>
 </html>
